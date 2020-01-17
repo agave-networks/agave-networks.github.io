@@ -1,0 +1,73 @@
+{% capture address_1 %}
+{{ include.address1 }}
+{% endcapture %}
+{% capture address_2 %}
+{{ include.address2 }}
+{% endcapture %}
+{% capture address_3 %}
+{{ include.address3 }}
+{% endcapture %}
+{% capture email %}
+{{ include.email }}
+{% endcapture %}
+{% capture phone %}
+{{ include.phone }}
+{% endcapture %}
+{% capture facebook %}
+{{ include.facebook }}
+{% endcapture %}
+{% capture instagram %}
+{{ include.instagram }}
+{% endcapture %}
+{% capture twitter %}
+{{ include.twitter }}
+{% endcapture %}
+
+<section id="footer">
+    <div class="inner">
+        <h2 class="major">Get in touch</h2>
+        <p>{{ include.get_in_touch_text }}</p>
+        <form method="post" action="https://formspree.io/mledbwzk">
+            <div class="fields">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="4"></textarea>
+                </div>
+            </div>
+            <ul class="actions">
+                <li><input type="submit" value="Send Message" /></li>
+            </ul>
+        </form>
+        <ul class="contact">
+                {%if include.address1!=""%}
+                {%include contact/contact_address.html ln1=address_1 ln2=address_2 ln3=address_3%}
+                {%endif%}
+                {%if include.phone!=""%}
+                {%include contact/contact_phone.html number=phone%}
+                {%endif%}
+                {%if include.email!=""%}
+                {%include contact/contact_email.html email=email%}
+                {%endif%}
+                {%if include.twitter!=""%}
+                {%include contact/contact_twitter.html id=twitter%}
+                {%endif%}
+                {%if include.facebook!=""%}
+                {%include contact/contact_facebook.html id=facebook%}
+                {%endif%}
+                {%if include.instagram!=""%}
+                {%include contact/contact_instagram.html id=instagram%}
+                {%endif%}
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</section>

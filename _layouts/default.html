@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+{% capture banner_title %}
+{{ page.title }}
+{% endcapture %}
+
+{% capture banner_subtitle %}
+{{ page.subtitle }}
+{% endcapture %}
+
+<html>
+	<head>
+		<title>{{page.title}}</title>
+		<meta charset="utf-8" />
+		<!-- <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
+		<link rel="icon" href={{"assets/ico/favicon.ico" | relative_url}}>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href={{"assets/css/main.css" | relative_url}} />
+		<noscript><link rel="stylesheet" href={{"assets/css/noscript.css" | relative_url}} /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+				<!-- Header -->
+				<header id="header" class="alt">
+					<h1>
+						<a href="index.html">
+							<!-- <div class="icon"> -->
+							<img class="icon" src="images/vector/agave_logo.svg" alt="on" style="vertical-align:middle" width="30px" height="30px"/>
+							{{page.title | upcase }}
+						</a>
+					</h1>
+					{%if page.show_menu%}
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					{%endif%}
+					</header>
+
+				<!-- Menu -->
+				{%if page.show_menu%}
+					{%include menu.html%}
+				{%endif%}
+				<!-- Banner -->
+					{%include banner.html title=banner_title description=banner_subtitle%}
+					{{content}}
+			</div>
+
+		<!-- Scripts -->
+		{%include scripts.html%}
+
+	</body>
+</html>

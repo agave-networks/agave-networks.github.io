@@ -1,0 +1,28 @@
+<section id={{include.id}} class="wrapper {%if include.is_alt=="True"%}alt{%endif%} {{include.style}}">
+    <div class="inner">
+        <h2 class="major">Team</h2>
+        <p>{{page.team_description}}</p>
+        <div class="spotlight">
+            <!-- <img src="images/pic01.jpg"  alt="Avatar" border-radius="100%" width= "200em">             -->
+            <div class="row ">
+
+
+                {%for member in site.data.team_members%}
+                <div class="column">
+                    <div class="spotlight col-4">
+                        <div class="card border-0 shadow">
+                        <img src="images/team/{{member.image}}" alt="Avatar" border-radius="100%" width= "200em">
+                        <div class="card-body text-center" margin-bottom="0px">
+                            <h5 class="card-title mb-0">{{member.name | | upcase }}</h5>
+                            <div class="card-text text-black-50">{{member.role | replace: ', ', ',&#13;&#10;' | newline_to_br}}</div>
+                            <a href="mailto:{{member.email}}" class="icon solid fa-lg fa-fw fa-envelope " padding-right="1em" ></a>
+                            <a href="https:linkedin.com/in/{{member.linkedin}}" class="icon brands fa-lg fa-fw fa-linkedin-in "></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</section>

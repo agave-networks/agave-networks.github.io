@@ -1,0 +1,20 @@
+---
+
+---
+<!-- <p>{{ page.date | date_to_string }} - {{ page.author }}</p> -->
+<section id="post_{{post.title}}" class="wrapper spotlight {%if page.is_alt%}alt{%endif%} {{page.style}}">
+        <!-- <h1>{{ page.title }}</h1> -->
+        <div class="inner">
+            <!-- <a href="#" > -->
+                <img class="img-p" src={{page.image_link | relative_url }} alt="" width="42%"  />
+            <!-- </a> -->
+            <div class="content">
+                <h2 class="major">{{page.title}}</h2>
+                {{content}}
+                {% if page.show_learnmore%}
+                <a href="#" class="special">Learn more</a>
+                {%endif%}
+            </div>
+        </div>
+</section>
+
